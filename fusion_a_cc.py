@@ -4,8 +4,8 @@ import openfisca_france
 openfisca_france.init_country()
 from openfisca_core.simulations import ScenarioSimulation
 # PPE Modifiee
-def fusion_a(div_ms, ra_rsa, br_rmi_i, br_rmi_ms, br_rmi_pf, br_rmi, rmi_nbp, forf_log, rsa_socle, rmi, rsa, rsa_act, rsa_act_i, crds_mini, ppe_coef, ppe_base, ppe_coef_tp, ppe_elig, ppe_elig_i, ppe_rev, ppe_brute, ppe):
-    
+def fusion_a(div_ms, ra_rsa, br_rmi_i, br_rmi_ms, br_rmi_pf, br_rmi, rmi_nbp, forf_log, rsa_socle, rmi, rsa, rsa_act, rsa_act_i, crds_mini, ppe_coef, ppe_base, ppe_coef_tp, ppe_elig, ppe_elig_i, ppe_rev, ppe_brute, ppe, _option = {'age' : [CHEF, PART]}):
+
     for agent in QUIFOY:
         if sal >=1 & sal <= 0.7*SMIC:
             total = min(sal, 0.7 * SMIC)
@@ -17,6 +17,9 @@ def fusion_a(div_ms, ra_rsa, br_rmi_i, br_rmi_ms, br_rmi_pf, br_rmi, rmi_nbp, fo
       
         else:
             fusion = 0
+            
+            eligib = (age[CHEF] >= 18) | (age[PART] >= 18)
+            
         break
 
 def case_study(year = 2013):
